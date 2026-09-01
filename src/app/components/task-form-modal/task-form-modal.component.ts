@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import {DIALOG_DATA} from '@angular/cdk/dialog';
 import {ITaskFormModalData} from '../../interfaces/task-form-modal-data.interface';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
@@ -25,4 +25,6 @@ export class TaskFormModalComponent {
   onFormSubmite(){
 
   }
+
+  protected readonly input = input;
 }
