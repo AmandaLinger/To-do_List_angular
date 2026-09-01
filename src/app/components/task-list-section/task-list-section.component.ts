@@ -16,6 +16,10 @@ export class TaskListSectionComponent {
     ngOnInit() {
       this._taskService.todoTasks.subscribe((todoList) => {
         console.log('Lista de to-do: ', todoList);
+
+        // todoList[0].name = "Nome alterado";
+
+        this._taskService.carregarListaAtualDeTodos();
       });
     }
 }

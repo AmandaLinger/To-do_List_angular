@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, map} from 'rxjs';
 import {ITask} from '../interfaces/task.interface';
 import {ITaskFormControls} from '../interfaces/task-form-controls.interface';
 import {TaskStatusEnum} from '../enums/task-status-enum';
@@ -11,17 +11,20 @@ import {generateUniqueIdWithTimestamp} from '../utils/generate-unique-id-with-ti
 export class TaskService {
   //tarefas em A fazer
   private todoTasks$ = new BehaviorSubject<ITask[]>([]);
-  readonly todoTasks = this.todoTasks$.asObservable();
+  readonly todoTasks = this.todoTasks$.asObservable()
+    .pipe(map( (tasks) => { structuredClone(tasks)}));
 
   //tarefas em andamento
 
   private doingTasks$ = new BehaviorSubject<ITask[]>([]);
-  readonly doingTasks = this.todoTasks$.asObservable();
+  readonly doingTasks = this.doingTasks$.asObservable()
+    .pipe(map( (tasks) => { structuredClone(tasks)}));
 
   //tarefas concluídas
 
   private doneTasks$ = new BehaviorSubject<ITask[]>([]);
-  readonly doneTasks = this.todoTasks$.asObservable();
+  readonly doneTasks = this.doneTasks$.asObservable()
+    .pipe(map( (tasks) => { structuredClone(tasks)}));
 
   addTask(taskInfos: ITaskFormControls) {
     const newTask: ITask = {
@@ -31,11 +34,15 @@ export class TaskService {
       comments: [],
     };
 
-    const currentList = this.todoTasks$.value();
+    const currentList = this.todoTasks$.value;
 
     this.todoTasks$.next([
       ...currentList,
       newTask
     ]);
+  }
+
+  carregarListaAtualDeTodos(){
+    console.log("Lista atual To-Do: ", this.todoTasks$.value);
   }
 }
