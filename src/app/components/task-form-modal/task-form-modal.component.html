@@ -5,7 +5,7 @@
       {{(_data.mode === 'create' ? 'Criar ' : 'Editar ') + 'tarefa'}}
     </h1>
 
-    <img class="ml-auto cursor-pointer h-4" src="images/x.svg" alt="">
+    <img class="ml-auto cursor-pointer h-4" src="images/x.svg" alt="ícone de x" (click)="closeModal()">
   </div>
 
   <div class="p-4 border-y border-[#D1D5DB] flex flex-col gap-4">
@@ -34,7 +34,7 @@
 
   <div class="p-4 flex justify-end gap-2">
     <button class="py-3 px-4 bg-[#fafafa] rounded-xl text-sm font-semibold cursor-pointer
-      active:translate-y-1 transition-transform duration-75" type="button">Cancelar</button>
+      active:translate-y-1 transition-transform duration-75" type="button" (click)="closeModal()">Cancelar</button>
     <button
       class="{{`py-3 px-4 rounded-xl text-sm text-white  font-semibold cursor-pointer ${
       taskForm.invalid ? 'bg-[#d7d8d8]' : 'bg-[#D11174] active:translate-y-1 transition-transform duration-75\n'+

@@ -1,7 +1,8 @@
 import {Component, inject, input} from '@angular/core';
-import {DIALOG_DATA} from '@angular/cdk/dialog';
+import {DIALOG_DATA, DialogRef} from '@angular/cdk/dialog';
 import {ITaskFormModalData} from '../../interfaces/task-form-modal-data.interface';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {ITaskFormControls} from '../../interfaces/task-form-controls.interface';
 
 
 @Component({
@@ -13,6 +14,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 export class TaskFormModalComponent {
 
   readonly _data: ITaskFormModalData = inject(DIALOG_DATA);
+  readonly _dialogRef = inject(DialogRef);
 
   taskForm: FormGroup = new FormGroup({
     name: new FormControl(this._data.formValues.name, [
@@ -23,8 +25,13 @@ export class TaskFormModalComponent {
   });
 
   onFormSubmite(){
-
+  this.closeModal(this.taskForm.value);
   }
 
-  protected readonly input = input;
+  closeModal(formValues: ITaskFormControls | undefined = undefined){
+    this._dialogRef.close(formValues);
+  }
 }
+
+
+
