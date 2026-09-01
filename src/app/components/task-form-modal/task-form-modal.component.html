@@ -1,4 +1,4 @@
-<form class="rounded-xl overflow-hidden bg-white">
+<form class="rounded-xl overflow-hidden bg-white" [formGroup]="taskForm"(ngSubmit)="onFormSubmite()">
   <div class="flex gap-1 items-center p-4">
     <img class="bg-[#D11174] p-1 h-5 w-5 rounded-lg" src="images/pencil-simple-outline.svg" alt="">
     <h1 class="font-semibold text-lg">
@@ -12,7 +12,8 @@
     <div>
       <p class="font-semibold text-sm mb-2">Nome</p>
       <input class="w-full border border-[#d1d5db] p-3 rounded-lg
-      text-sm font-light test-[#89919f]" type="text" placeholder="Descreve o que deverá ser feito">
+      text-sm font-light test-[#89919f]" type="text" placeholder="Descreve o que deverá
+      ser feito" formControlName="name">
 
       <p class="font-semibold text-sm text-red-500">O campo é obrigatório e precisa ter no mínimo 10 caracteres.</p>
     </div>
@@ -20,7 +21,7 @@
     <div>
       <p class="font-semibold text-sm mb-2">Descrição</p>
       <input class="w-full border border-[#d1d5db] p-3 rounded-lg
-      text-sm font-light test-[#89919f]" type="text" placeholder="Adicione uma descrição">
+      text-sm font-light test-[#89919f]" type="text" placeholder="Adicione uma descrição" formControlName="description">
 
       <p class="font-semibold text-sm text-red-500">O campo é obrigatório e precisa ter no mínimo 10 caracteres.</p>
     </div>
@@ -29,8 +30,12 @@
   <div class="p-4 flex justify-end gap-2">
     <button class="py-3 px-4 bg-[#fafafa] rounded-xl text-sm font-semibold cursor-pointer
       active:translate-y-1 transition-transform duration-75" type="button">Cancelar</button>
-    <button class="py-3 px-4 bg-[#D11174] rounded-xl text-sm font-semibold cursor-pointer
-      active:translate-y-1 transition-transform duration-75 shadow-md shadow-pink-500/50 text-white" type="submit">
+    <button
+      class="{{`py-3 px-4 rounded-xl text-sm text-white  font-semibold cursor-pointer ${
+      taskForm.invalid ? 'bg-[#d7d8d8]' : 'bg-[#D11174] active:translate-y-1 transition-transform duration-75\n'+
+'      shadow-md shadow-pink-500/50 '
+      }`}}"
+      type="submit" [disabled]="taskForm.invalid">
       {{_data.mode === 'create' ? 'Criar tarefa' : 'Salvar alterações'}}
     </button>
   </div>
