@@ -12,7 +12,6 @@ import {ITaskFormControls} from '../../interfaces/task-form-controls.interface';
   styleUrl: './task-form-modal.component.css'
 })
 export class TaskFormModalComponent {
-
   readonly _data: ITaskFormModalData = inject(DIALOG_DATA);
   readonly _dialogRef = inject(DialogRef);
 
