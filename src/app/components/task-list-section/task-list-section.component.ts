@@ -18,6 +18,7 @@ import {AsyncPipe} from '@angular/common';
 })
 export class TaskListSectionComponent {
     readonly _taskService = inject(TaskService);
+    readonly emptyTasks: ITask[] = [];
 
     drop(event: CdkDragDrop<ITask[], ITask[], any>) {
       if (event.previousContainer === event.container) {
