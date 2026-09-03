@@ -1,5 +1,6 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import {ModalControllerService} from '../../services/modal-controller.service';
+import {ITask} from '../../interfaces/task.interface';
 
 @Component({
   selector: 'app-task-card',
@@ -9,11 +10,12 @@ import {ModalControllerService} from '../../services/modal-controller.service';
 })
 export class TaskCardComponent {
   private readonly _modalControllerService = inject(ModalControllerService);
+  readonly task = input.required<ITask>();
 
   openEditTaskModal(){
     const dialogRef = this._modalControllerService.openEditTaskModal({
-      name: 'Nome tarefa',
-      description: 'Descrição da tarefa'
+      name: this.task().name,
+      description: this.task().description
     });
 
     dialogRef.closed.subscribe((taskForm) => {
