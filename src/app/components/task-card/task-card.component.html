@@ -10,8 +10,8 @@
   <div class="flex items-center gap-1">
     <img class="h-4" src="images/chat-teardrop.svg" alt="ícone de comentário">
     <p class="font-semibold text-xs text-[#D11174] underline
-      underline-offset-2 cursor-pointer">{{ task().comments.length }} Comentários</p>
-
+      underline-offset-2 cursor-pointer" (click)="openTaskCommentsModal()"
+    >{{ task().comments.length }} Comentários</p>
 
     <p class="font-semibold text-xs text-gray-500 underline
       underline-offset-2 cursor-pointer ml-auto" (click)="openEditTaskModal()">Editar</p>
