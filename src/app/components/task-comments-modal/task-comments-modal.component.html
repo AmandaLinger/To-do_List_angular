@@ -21,11 +21,15 @@
       <div class="flex items-start gap-2">
         <div class="flex flex-col w-full">
           <input class="rounded-lg border border-[#d1d5db] p-3 bg-white flex-1
-            text-sm font-light" placeholder="Adicione um comentário" type="text" />
-          <p class="font-semibold text-sm text-red-500">O campo é obrigatório</p>
+            text-sm font-light" placeholder="Adicione um comentário" type="text"
+            [formControl]="commentControl"/>
         </div>
-        <button class="py-3 px-4 bg-[#D11174] rounded-xl text-sm font-semibold cursor-pointer
-      active:translate-y-1 transition-transform duration-75 shadow-md shadow-pink-500/50 text-white">Adicionar</button>
+        <button class="{{`py-3 px-4 rounded-xl text-sm font-semibold  text-white cursor-pointer
+        ${commentControl.invalid ? 'bg-[#d7d8d8]' : 'bg-[#D11174] active:translate-y-1 transition-transform duration-75 shadow-md shadow-pink-500/50'}`
+        }}"
+        [disabled]="commentControl.invalid"
+        (click)="onAddComment()">
+          Adicionar</button>
       </div>
 
       <div class="flex flex-col gap-5 overflow-y-auto max-h-44 scrollbar-hidden">
@@ -36,7 +40,7 @@
               <p class="font-light text-sm text-[#374151] ">{{comment.description}}</p>
             </div>
 
-            <div class="{{`flex gap-4 ${!last? 'mb-3': ''}`}}">
+            <div class="{{`flex gap-4 ${!last ? 'mb-3': ''}`}}">
               <p class="font-normal text-xs text-[#9ca3af]">Comentado a 10 min atrás</p>
               <p class="font-semibold text-xs underline underline-offset-2
                 cursor-pointer">Apagar</p>
@@ -48,3 +52,6 @@
     </div>
   </div>
 </div>
+
+
+
