@@ -1,7 +1,7 @@
-<form class="rounded-xl overflow-hidden bg-white" [formGroup]="taskForm"(ngSubmit)="onFormSubmite()">
+<form class="rounded-xl overflow-hidden bg-[#171717] text-[#ffffff]" [formGroup]="taskForm"(ngSubmit)="onFormSubmite()">
   <div class="flex gap-1 items-center p-4">
     <img class="bg-[#D11174] p-1 h-5 w-5 rounded-lg" src="images/pencil-simple-outline.svg" alt="">
-    <h1 class="font-semibold text-lg">
+    <h1 class="font-semibold text-lg  ml-1">
       {{(_data.mode === 'create' ? 'Criar ' : 'Editar ') + 'tarefa'}}
     </h1>
 
@@ -15,7 +15,7 @@
       text-sm font-light test-[#89919f]" type="text" placeholder="Descreva o que deverá ser feito" formControlName="name">
 
       @if(taskForm.get('name')?.touched && taskForm.get('name')?.invalid){
-        <p class="font-semibold text-sm text-red-500">O campo é obrigatório e
+        <p class="font-semibold text-sm text-red-500 mt-1">O campo é obrigatório e
           precisa ter no mínimo 10 caracteres.</p>
       }
     </div>
@@ -25,18 +25,18 @@
       <input class="w-full border border-[#d1d5db] p-3 rounded-lg
       text-sm font-light test-[#89919f]" type="text" placeholder="Adicione uma descrição" formControlName="description">
       @if(taskForm.get('description')?.touched && taskForm.get('description')?.invalid){
-        <p class="font-semibold text-sm text-red-500">O campo é obrigatório e
+        <p class="font-semibold text-sm text-red-500 mt-1">O campo é obrigatório e
           precisa ter no mínimo 10 caracteres.</p>
       }
 
     </div>
   </div>
 
-  <div class="p-4 flex justify-end gap-2">
+  <div class="p-4 flex justify-end gap-2 text-[#171717] ">
     <button class="py-3 px-4 bg-[#fafafa] rounded-xl text-sm font-semibold cursor-pointer
       active:translate-y-1 transition-transform duration-75" type="button" (click)="closeModal()">Cancelar</button>
     <button
-      class="{{`py-3 px-4 rounded-xl text-sm text-white  font-semibold cursor-pointer ${
+      class="{{`py-3 px-4 rounded-xl text-sm font-semibold cursor-pointer ${
       taskForm.invalid ? 'bg-[#d7d8d8]' : 'bg-[#D11174] active:translate-y-1 transition-transform duration-75\n'+
 '      shadow-md shadow-pink-500/50 '
       }`}}"
