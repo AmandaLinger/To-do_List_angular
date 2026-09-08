@@ -8,9 +8,9 @@
   </div>
 
   <div class="p-4 border-t border-[#d1d5db]">
-    <h1 class="font-semibold text-lg mb-4">Minha nova tarefa</h1>
+    <h1 class="font-semibold text-lg mb-4">{{_task.name}}</h1>
     <p class="font-semibold text-sm mb-2">Descrição</p>
-    <p class="font-normal text-base text-[#374151]">Essa é minha tarefa para criar um projeto angular </p>
+    <p class="font-normal text-base text-[#374151]">{{_task.description}}</p>
   </div>
 
   <div class="p-4 ">
@@ -21,7 +21,9 @@
 
       <div class="flex items-start gap-2">
         <div class="flex flex-col w-full">
-          <input class="rounded-lg border border-[#d1d5db] p-3 bg-white flex-1
+          <input
+            #commentInput
+            class="rounded-lg border border-[#d1d5db] p-3 bg-white flex-1
             text-sm font-light" placeholder="Adicione um comentário" type="text"
             [formControl]="commentControl"/>
         </div>
@@ -44,7 +46,7 @@
             <div class="{{`flex gap-4 ${!last ? 'mb-3': ''}`}}">
               <p class="font-normal text-xs text-[#9ca3af]">Comentado a 10 min atrás</p>
               <p class="font-semibold text-xs underline underline-offset-2
-                cursor-pointer">Apagar</p>
+                cursor-pointer" (click)="onRemoveModal(comment.id)">Apagar</p>
             </div>
           </div>
         }

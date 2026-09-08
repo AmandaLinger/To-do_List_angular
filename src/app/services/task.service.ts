@@ -145,4 +145,16 @@ export class TaskService {
   carregarListaAtualDeTodos(){
     console.log("Lista atual To-Do: ", this.todoTasks$.value);
   }
+
+  deleteTask(id: string, status: TaskStatus) {
+    const currentTaskList = this.getTaskListByStatus(status);
+    const taskIndex = currentTaskList.value.findIndex((task) => task.id === id);
+
+    if (taskIndex === -1) {
+      return;
+    }
+
+    const updatedTaskList = currentTaskList.value.filter((task) => task.id !== id);
+    currentTaskList.next(updatedTaskList);
+  }
 }

@@ -2,7 +2,7 @@
   <div class="flex gap-1">
     <p class="font-bold text-black">{{ task().name }}</p>
     <img class="self-start cursor-pointer ml-auto w-6 "
-         src="images/trash-simple.svg" alt="ícone de lixeira">
+         src="images/trash-simple.svg" alt="ícone de lixeira" (click)="deteleTask()">
   </div>
 
   <p class="font-light text-sm text-gray-500">{{ task().description }}</p>

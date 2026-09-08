@@ -42,4 +42,9 @@ export class TaskCardComponent {
       }
     })
   }
+
+  deteleTask(){
+    const task = this.task();
+    this._taskService.deleteTask(task.id, task.status);
+  }
 }
