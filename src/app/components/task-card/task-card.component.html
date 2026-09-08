@@ -1,11 +1,15 @@
 <div class="p-3 bg-[#ffffff] rounded-xl cursor-grab flex flex-col gap-3">
   <div class="flex gap-1">
-    <p class="font-bold text-black">{{ task().name }}</p>
+    <p class="font-bold text-black" [title]="task().name">
+      {{ task().name.length < 13? task().name : (task().name | slice: 0:13) + "..."}}
+    </p>
     <img class="self-start cursor-pointer ml-auto w-6 "
          src="images/trash-simple.svg" alt="ícone de lixeira" (click)="deteleTask()">
   </div>
 
-  <p class="font-light text-sm text-gray-500">{{ task().description }}</p>
+  <p class="font-light text-sm text-gray-500" [title]="task().description">
+    {{ task().description.length < 20? task().description : (task().description | slice: 0:20) + "..."}}
+  </p>
 
   <div class="flex items-center gap-1">
     <img class="h-4" src="images/chat-teardrop.svg" alt="ícone de comentário">

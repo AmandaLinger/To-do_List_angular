@@ -2,10 +2,11 @@ import {Component, inject, input} from '@angular/core';
 import {ModalControllerService} from '../../services/modal-controller.service';
 import {ITask} from '../../interfaces/task.interface';
 import {TaskService} from '../../services/task.service';
+import {SlicePipe} from '@angular/common';
 
 @Component({
   selector: 'app-task-card',
-  imports: [],
+  imports: [SlicePipe],
   templateUrl: './task-card.component.html',
   styleUrl: './task-card.component.css'
 })

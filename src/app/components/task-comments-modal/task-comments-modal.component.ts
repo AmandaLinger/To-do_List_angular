@@ -46,7 +46,7 @@ export class TaskCommentsModalComponent {
     this._dialogRef.close(this.taskCommentsChanged);
   }
 
-  onRemoveModal(commentId : string){
+  onRemoveComments(commentId : string){
     this._task.comments = this._task.comments.filter( (comment) => {
       return comment.id !== commentId
     });
