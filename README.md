@@ -1,5 +1,9 @@
 # ProjetoGoTask
 
+## 📑​ Lista de TO-DO
+
+<img width="1752" height="694" alt="Screenshot_6" src="https://github.com/user-attachments/assets/47605e45-2744-4265-937f-d2ece18980cd" />
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
 
 ## Development server
