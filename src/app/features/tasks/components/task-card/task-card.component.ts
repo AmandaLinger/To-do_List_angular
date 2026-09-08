@@ -1,7 +1,7 @@
 import {Component, inject, input} from '@angular/core';
-import {ModalControllerService} from '../../services/modal-controller.service';
-import {ITask} from '../../interfaces/task.interface';
-import {TaskService} from '../../services/task.service';
+import {ModalControllerService} from '../../../../core/services/modal-controller.service';
+import {ITask} from '../../../../domain/tasks/interfaces/task.interface';
+import {TaskService} from '../../../../core/services/task.service';
 import {SlicePipe} from '@angular/common';
 
 @Component({

@@ -1,8 +1,8 @@
 import {Component, inject} from '@angular/core';
 import {TaskCardComponent} from '../task-card/task-card.component';
-import {TaskService} from '../../services/task.service';
+import {TaskService} from '../../../../core/services/task.service';
 import {CdkDrag, CdkDragDrop, CdkDropList} from '@angular/cdk/drag-drop';
-import {ITask} from '../../interfaces/task.interface';
+import {ITask} from '../../../../domain/tasks/interfaces/task.interface';
 import {AsyncPipe} from '@angular/common';
 
 @Component({

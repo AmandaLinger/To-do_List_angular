@@ -1,8 +1,8 @@
 import {Component, inject} from '@angular/core';
-import {HeaderComponent} from './components/header/header.component';
-import {MainContentComponent} from './components/main-content/main-content.component';
-import {ModalControllerService} from './services/modal-controller.service';
-import {ITask} from './interfaces/task.interface';
+import {HeaderComponent} from './core/layout/header/header.component';
+import {MainContentComponent} from './features/tasks/components/main-content/main-content.component';
+import {ModalControllerService} from './core/services/modal-controller.service';
+import {ITask} from './domain/tasks/interfaces/task.interface';
 
 @Component({
   selector: 'app-root',
